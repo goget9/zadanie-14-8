@@ -18,8 +18,11 @@ App = React.createClass({
           });
         }.bind(this));
     },
-    
+
     getGif: function(searchingText, callback) {  // 1.
+        var GIPHY_API_URL = 'http://api.giphy.com';
+        var GIPHY_PUB_KEY = 'yiyfh3SNykDaUmo4rjYFIqbQrrXvKSai';
+        
         var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  // 2.
         var xhr = new XMLHttpRequest();  // 3.
         xhr.open('GET', url);
@@ -31,8 +34,7 @@ App = React.createClass({
                     sourceUrl: data.url
                 };
                 callback(gif);  // 6.
-            () 
-        }
+            }
         };
         xhr.send();
     },
@@ -60,3 +62,6 @@ App = React.createClass({
     }
 
 });
+
+    
+
